@@ -1,4 +1,11 @@
-function App() {
+import { useState } from "react";
+import { TaskItem } from "./components/TaskItem";
+
+export  function App() {
+  const [taskTitle, setTaskTitle] = useState("");
+  const handleSubmitTask = (task: string) => {
+    setTaskTitle(task);
+  }
   return (
     <main className="mx-auto max-w-3xl p-8">
       <header className="mb-8">
@@ -9,23 +16,12 @@ function App() {
       <section className="rounded-2xl border border-border bg-surface p-6">
         <h2 className="mb-4 text-2xl">Today</h2>
 
-        <ul className="space-y-2">
-          <li className="flex items-center justify-between rounded-lg bg-background px-4 py-3">
-            <span>Set up the design system</span>
-            <span className="rounded-full bg-accent px-3 py-1 text-sm text-background">
-              In progress
-            </span>
-          </li>
-          <li className="flex items-center justify-between rounded-lg bg-background px-4 py-3">
-            <span>Add the first task</span>
-            <button className="rounded-md bg-primary px-3 py-1 text-sm text-background hover:bg-primary/90">
-              Add
-            </button>
-          </li>
-        </ul>
+    
+      </section>
+      <section>
+        <TaskItem taskTitle={taskTitle} submitTask={handleSubmitTask} />
       </section>
     </main>
   )
 }
-
-export default App
+export default App;
