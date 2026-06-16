@@ -1,4 +1,4 @@
-import { PlusIcon } from "lucide-react";
+import { PlusIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 
  
@@ -9,8 +9,7 @@ export function TaskForm( {  onAddTask }: { onAddTask: (title: string) => void }
         e.preventDefault();
         if (!title.trim()) return
             onAddTask(title);
-            setTitle("");
-        
+            setTitle(""); 
     }
   
     return (

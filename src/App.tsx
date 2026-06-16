@@ -10,6 +10,10 @@ export  function App() {
     setTaskList((prev) => [...prev, { id: crypto.randomUUID(), title, completed: false }]);
   }
 
+  const deleteTask = (id: string) => {
+    setTaskList((prev) => prev.filter((task) => task.id !== id));
+  }
+
   return (
     <main className="mx-auto max-w-3xl p-8">
       <header className="mb-8">
@@ -26,7 +30,7 @@ export  function App() {
         <ul className="space-y-2 mt-6">
           {taskList.map((task) => (
             <li key={task.id} className="flex items-center gap-2  bg-surface rounded-lg p-4">
-              <TaskItem title={task.title} />
+              <TaskItem title={task.title} id={task.id} onDeleteTask={deleteTask} />
             </li>
           ))}
         </ul>
