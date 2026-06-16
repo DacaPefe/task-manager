@@ -1,22 +1,12 @@
-import { useState } from "react";
 
-type Task = {
-    id: string;
-    title: string;
-    completed: boolean;
-}
 
-export function TaskItem( { taskTitle, submitTask }: { taskTitle: string, submitTask: (task: string) => void } ) {
-    const [task, setTask] = useState(taskTitle);
-  const [taskList, setTaskList] = useState<Task[]>([]);
 
- 
- 
+export function TaskItem( {  title }: { title: string } ) {
     return (
-        <div className="flex items-center justify-between">
-            <input type="text" value={task} onChange={(e) => setTask(e.target.value)} className="w-full border border-border rounded-lg p-2" />
-        
-        </div>
+        <>
+        <input type="checkbox"  className="w-4 h-4 rounded-full border border-border bg-surface checked:bg-primary checked:border-primary"/>
+        <p className="text-sm font-medium text-text">{title}</p>
+        </>
     )
 }
 
